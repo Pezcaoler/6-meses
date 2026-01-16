@@ -168,4 +168,35 @@
   width: 150px;
   background: transparent;
   pointer-events: none;
+
+}
+
+@media (max-width: 767px) {
+
+  /* Quitamos posición absoluta */
+  .gif-izq,
+  .gif-der {
+    position: static;
+    transform: none;
+    width: 120px;
+    margin: 15px auto;
+    display: block;
+  }
+
+  /* Colocar el primer GIF antes del texto */
+  .gif-izq {
+    order: -1;
+  }
+
+  /* Colocar el segundo GIF después del video */
+  .gif-der {
+    order: 3;
+  }
+
+  /* Convertimos la carta en contenedor flexible */
+  .carta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
