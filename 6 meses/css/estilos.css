@@ -1,0 +1,171 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Georgia", serif;
+}
+
+/* ===== INTRO ===== */
+.intro {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1s ease;
+  z-index: 10;
+}
+
+.intro.oculto {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Texto "Ábreme" */
+.abrir-texto {
+  width: 100%;
+  background: white;
+  color: black;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* GIF */
+.gif-portada {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Escritorio: GIF 4:3 ocupa toda la pantalla */
+@media (min-width: 768px) {
+  .gif-portada {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  .abrir-texto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80px;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Móvil: fondo blanco, GIF centrado, texto encima */
+@media (max-width: 767px) {
+  .intro-content {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .gif-portada {
+    max-width: 100%;
+  }
+
+  .abrir-texto {
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+}
+
+/* ===== CARTA ===== */
+.carta {
+  min-height: 100vh;
+  background: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 15px;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+.carta.oculto {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Fondo tipo papel con textura CSS */
+.papel {
+  max-width: 800px;
+  width: 100%;
+  padding: 40px 30px;
+  background:
+    linear-gradient(0deg, rgba(255,255,255,0.96), rgba(255,255,255,0.96)),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,0.02),
+      rgba(0,0,0,0.02) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0,0,0,0.015),
+      rgba(0,0,0,0.015) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+  border-radius: 6px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Texto de la carta */
+.texto {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  margin-bottom: 30px;
+}
+
+/* Video */
+.video-contenedor video {
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* Para que los GIFs se posicionen respecto a la carta */
+.carta {
+  position: relative;
+}
+
+/* GIF izquierdo */
+.gif-izq {
+  position: absolute;
+  left: 40px;          /* ajusta según necesites */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150px;       /* tamaño del GIF */
+  background: transparent;
+  pointer-events: none;
+}
+
+/* GIF derecho */
+.gif-der {
+  position: absolute;
+  right: 40px;        /* ajusta según necesites */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150px;
+  background: transparent;
+  pointer-events: none;
+}
